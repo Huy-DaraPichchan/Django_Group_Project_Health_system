@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-size: medium;
+        font-family: 'Alfa Slab One', cursive;
+    }
+    .con-holder {
+        font-size: xx-large;
+    }
+    .p-2 {
+        padding: 2rem;
+    }
+    .p-5 {
+        padding: 5rem;
+    }
+    .bg-r {
+        background: rgb(209, 63, 63);
+    }
+    .bg-g {
+        background: rgb(39, 202, 7);
+    }
+    .bg-y {
+        background: rgb(227, 230, 53);
+    }
+    .flex {
+        display: flex;
+    }
+    .jt-center {
+        justify-content: center;
+    }
+    .flex-dir-col {
+        flex-direction: column;
+    }
+
+    .flex-dir-row {
+        flex-direction: row;
+    }
+    .jt-cont {
+        justify-content: space-between;
+    }
+</style>
+</head>
+<body>
+	
+{% block content %}
+    <div class="flex jt-center flex-dir-col p-5">
+        <div class="con-holder">
+            <div>
+            {% ifequal count 5 %}
+        <div class="bg-r p-2 flex jt-center" >
+            <p>You may have been infected by Covid-19. Please stay calm and go to the hospital for health check</p>
+        </div>
+    {% endifequal %}
+    
+    {% ifequal count 0 %}
+        <div class="bg-g p-2 flex jt-center">
+            <p>Congratulation!! You are Covid-19 free.</p>
+        </div>
+    {% endifequal %}
+    
+    {% ifnotequal count 0 %}
+        {% ifnotequal count 5 %}
+            <div class="bg-y p-2 flex jt-center">
+                <p>You may have been infected by Covid-19 or maybe sick. Please stay calm and go to the hospital for health check</p>
+            </div>
+        {% endifnotequal %}
+    {% endifnotequal %}
+        </div>
+        </div>
+        <div class="flex flex-dir-row jt-cont">
+            <div>
+                <a href="/">Back to homepage</a>
+            </div>
+            <div>
+                <a href="https://www.who.int/pmnch/countries/cambodia/en/index2.html">Contact the hospital</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

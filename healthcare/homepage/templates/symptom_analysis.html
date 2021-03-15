@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'css/symptom_test.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Symptom Test</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="symptom_analysis" method="POST">
+					{% csrf_token %}
+					<label for="q1">Do you experience cough or cold recently?</label><br><br>
+					<input class="text" type="radio" name="q1" value="Yes" required="">Yes
+					<input class="text" type="radio" name="q1" value="No" required="">No<br><br>
+					<label for="q2">Do you experience shortness of breath recently?</label><br><br>
+					<input class="text" type="radio" name="q2" value="Yes" required="">Yes
+					<input class="text" type="radio" name="q2" value="No" required="">No<br><br>
+					<label for="q3">Do you experience taste disorders recently?</label><br><br>
+					<input class="text" type="radio" name="q3" value="Yes" required="">Yes
+					<input class="text" type="radio" name="q3" value="No" required="">No<br><br>
+					<label for="q4">Have you been travelling abroad recently?</label><br><br>
+					<input class="text" type="radio" name="q4" value="Yes" required="">Yes
+					<input class="text" type="radio" name="q4" value="No" required="">No<br><br>
+					<label for="q5">Do you live in a Covid-19 outbreak area?</label><br><br>
+					<input class="text" type="radio" name="q5" value="Yes" required="">Yes
+					<input class="text" type="radio" name="q5" value="No" required="">No<br><br>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+			{% for msg in messages %}
+			<div class="agileits-top">
+				
+				<h3 style="color: red;">{{msg}}</h3>
+
+			</div>
+			{% endfor %}
+		</div>
+		
+	</div>
+	<!-- //main -->
+</body>
+</html>

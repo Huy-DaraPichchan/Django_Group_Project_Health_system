@@ -1,0 +1,115 @@
+{% load static %}
+
+<!Doctype html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+</head>
+
+<body style="background-image: url({% static 'assets/health1.jpg' %})"></body>
+<div id="content">
+    <!--Header-->
+    <header id="main">
+        <div class="header-element">
+            <h1>Corona Tracker</h1>
+            <h2>Latest, Quickest, Reliable</h2>
+        </div>
+
+    </header>
+
+    <!--Main-->
+    <main>
+        <div class="main-element">
+            <h1>Covid-19 Prevention tips</h1>
+            <!-- <img src="{% static 'assets/doctor.jpg' %}"> -->
+            <iframe width="550" height="400" src="https://www.youtube.com/embed/XQ_mROul14g" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <p>This video </p>
+            <ul>
+                <li><a href="#">Read More</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!--Navigation-->
+    <nav>
+        <ul>
+            <li><a href="#main">Home</a></li>
+            <li><a href="#report">News</a></li>
+            <li><a href="symptom_analysis">Symptom Test</a></li>
+            <li><a href="#contact">ContactUs</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="accounts/logout">Log out</a></li>
+            {% else %}
+            <li><a href="accounts/login">Sign In</a></li>
+            <li><a href="accounts/register">No account? Sign Up</a></li>
+            {% endif %}
+        </ul>
+        <ul>
+            {% if user.is_authenticated %}
+            <li style="color: gray;">User: {{user.username}}</li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!--Aside-->
+    <aside id="report">
+        <div class="report">
+            <h1>Cambodia</h1><br>
+            {% block content %}
+            <div class="flex flex-dir space-between">
+                <div>
+                    <p>Country: Cambodia </p>
+                </div>
+                <div>
+                    <p>In treatment: 1375</p>
+                </div>
+                <div>
+                    <p>Treated: 730</p>
+                </div>
+                <div>
+                    <p>Death: 1</p>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </aside>
+
+    <!--Section-->
+    <section>
+        <h1>Contact the hospital</h1>
+        <ul>
+            <li><a href="https://www.who.int/pmnch/countries/cambodia/en/index2.html">Click Here</a></li>
+        </ul>
+    </section>
+
+
+    <!--Footer-->
+    <footer id="contact">
+        <h1>ContactUs</h1>
+        <h2> Team Newbie Geeks</h2>
+        <p>Our team are full of enthusiastic and hyped software engineering students who are dedicated to hone their
+            skills and also help the society.</p>
+        <p>Location: Traeng Trayeung District, Kirirom Pine Resort, Cambodia</p>
+        <p>Contact Information: Tel: +855 86 418 040</p>
+        <p>Service Hours: Daily 8:00 a.m. - 9:00 p.m.</p>
+        <div class="footer-contact">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-google"></a>
+        </div>
+    </footer>
+
+</div>
+</body>
+
+</html>
